@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ShowGraph from './ShowGraph';
 import { withStyles } from '@material-ui/core/styles';
+import BtnToNavigate from './BtnToNavigate';
 
 const styles = theme => ({
 	'chart-container': {
@@ -72,7 +73,7 @@ class Home extends Component {
 		ws.onmessage = event => {
 			var response = JSON.parse(event.data);
 			if (response.type === 'ticker') {
-				console.log(response);
+				// console.log(response);
 
 				const oldBtcDataSet = this.state.lineChartData.datasets[0];
 				const newBtcDataSet = { ...oldBtcDataSet };
@@ -97,13 +98,15 @@ class Home extends Component {
 		const { classes } = this.props;
 		if (this.state.price !== 0) {
 			return (
-				<div className={classes['chart-container']}>
-					<h2>Current BTC_USD is {this.state.price}</h2>
-					<ShowGraph
-						data={this.state.lineChartData}
-						options={this.state.lineChartOptions}
-					/>
-				</div>
+				<>
+					<div className={classes['chart-container']}>
+						<h2>Current BTC_USD is {this.state.price}</h2>
+						<ShowGraph
+							data={this.state.lineChartData}
+							options={this.state.lineChartOptions}
+						/>
+					</div>
+				</>
 			);
 		} else {
 			return <h1>Wait.........</h1>;
