@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import ShowGraph from './ShowGraph';
 import { withStyles } from '@material-ui/core/styles';
-import BtnToNavigate from './BtnToNavigate';
 
 const styles = theme => ({
 	'chart-container': {

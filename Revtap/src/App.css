@@ -4,3 +4,15 @@
 li {
 	font-size: 1.4rem;
 }
+.navbarCss {
+	position: fixed;
+	left: 0;
+	width: 10%;
+	background-color: blue;
+
+	list-style: none;
+}
+.linkName {
+	font-size: 15px;
+	color: white;
+}
