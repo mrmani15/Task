@@ -23,6 +23,10 @@ const initState = {
 
 const reducer = (state = initState, action) => {
   switch (action.type) {
+
+    // for registering new user
+    // if user is first user
+
     case REGISTER_USER_REQUEST:
       if (state.allUser.length === 0) {
         return {
@@ -34,7 +38,11 @@ const reducer = (state = initState, action) => {
           currentUser: action.payload,
           newUser: [...state.newUser, action.payload]
         }
-      } else {
+      }
+
+      // search and authetication
+
+      else {
         const username = action.payload.username;
         const isPresentUsername = state.allUser.filter(user => username === user.username)
         if (isPresentUsername.length) {
@@ -58,6 +66,8 @@ const reducer = (state = initState, action) => {
         }
       }
 
+    //login authentication
+
     case USER_LOGIN_REQUEST:
       const isPresentUser = state.allUser.filter(user => user.username === action.payload.username && user.password === action.payload.password)
       if (isPresentUser.length) {
@@ -76,23 +86,16 @@ const reducer = (state = initState, action) => {
         }
       }
 
+    // adding new tweets
 
     case ADD_NEW_TWEET:
-      const obj= {
-        name:state.currentUser.name,
-        username:state.currentUser.username,
+      const obj = {
+        name: state.currentUser.name,
+        username: state.currentUser.username,
         tweet: action.payload
       }
       state.ownTweets = [...state.ownTweets, obj]
-      // let tweeTFeedArr = []
-      // for(let i = 0; i <state.ownTweets.length;i++){
-      //   let data = {
-      //     name: state.currentUser.name,
-      //     username: state.currentUser.username,
-      //     tweet: state.ownTweets[i]
-      //   }
-      //   tweeTFeedArr.push(data)
-      // }
+
       const data = {
         dob: state.currentUser.dob,
         email: state.currentUser.email,
@@ -101,7 +104,7 @@ const reducer = (state = initState, action) => {
         name: state.currentUser.name,
         ownTweets: state.ownTweets,
         username: state.currentUser.username,
-        tweetFeed:state.ownTweets
+        tweetFeed: state.ownTweets
       };
 
       return {
@@ -109,6 +112,8 @@ const reducer = (state = initState, action) => {
         currentUser: data,
         allDummyData: state.allUser.filter(user => user.username != state.currentUser.username)
       }
+
+    //log out feature
 
     case USER_LOG_OUT:
       return {
@@ -119,6 +124,8 @@ const reducer = (state = initState, action) => {
         ownTweets: [],
         tweetFeed: [],
       }
+
+    //tweets of followed user
 
     case ADD_FOLLOWED_TWEET:
       const followingTweets = state.allUser.filter(user => user.username === action.payload)
@@ -138,6 +145,8 @@ const reducer = (state = initState, action) => {
         currentUser: tweetData
       }
 
+    // unfolloing user
+
     case REMOVE_FOLLOWED_TWEET:
       const unFollowingTweets = state.currentUser.tweetFeed.filter(user => user.username !== action.payload)
       const unTweetData = {
@@ -152,7 +161,7 @@ const reducer = (state = initState, action) => {
       };
       return {
         ...state,
-        currentUser:unTweetData
+        currentUser: unTweetData
       }
 
     default:

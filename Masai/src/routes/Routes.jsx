@@ -10,11 +10,14 @@ import { connect } from 'react-redux';
 
 function Routes(props) {
 	const isLoggedIn = props.isLoggedIn;
+
+	//f or Logged in user
+
 	if (isLoggedIn) {
 		return (
 			<div>
 				<BrowserRouter>
-				<Redirect to="/create" />
+					<Redirect to="/create" />
 					<Switch>
 						<Route exact path="/" component={Home} />
 						<Route path="/create" component={CreateTweet} />
@@ -23,7 +26,9 @@ function Routes(props) {
 				</BrowserRouter>
 			</div>
 		);
-	} else {
+	}
+	// not logged in user
+	else {
 		return (
 			<div>
 				<BrowserRouter>

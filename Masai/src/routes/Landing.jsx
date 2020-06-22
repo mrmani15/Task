@@ -1,3 +1,6 @@
+
+// this is first page
+
 import React from 'react';
 import Navbar from '../components/Navbar';
 import LeftFront from '../components/LeftFront';

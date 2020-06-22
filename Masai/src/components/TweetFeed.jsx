@@ -41,6 +41,7 @@ class TweetFeed extends Component {
 								);
 							})}
 					</ul>
+
 					<Pagination
 						postsPerPage={this.state.postsPerPage}
 						totalPosts={tweets}

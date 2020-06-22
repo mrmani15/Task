@@ -1,3 +1,5 @@
+//this is profile pge of logged in user
+
 import React from 'react'
 import HomeSidebarNav from '../components/HomeSidebarNav'
 import ProfileTweet from '../components/ProfileTweet'
