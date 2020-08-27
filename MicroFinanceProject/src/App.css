@@ -1,0 +1,52 @@
+.Nav1 {
+    background-color: black;
+    font-size: 18px;
+}
+
+.homeDiv {
+    margin-top: 50px;
+}
+
+#overlay {
+    height: 100vh;
+   
+}
+
+.ovrlayHeading {
+    margin-top: 100px;
+    color: black;
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.overlayText {
+    color: rgb(230, 14, 158);
+    font-weight: bold;
+}
+
+.cardDeck {
+    margin: 130px 0px 130px 0px;
+}
+
+.horizonHeading {
+    margin-top: 100px;
+}
+
+#investSmall {
+    height: 310.88px;
+}
+
+/* Dashboard Page */
+.centerTag {
+    margin: 70px;
+}
+
+.dashboardHeading {
+    margin-top: 100px;
+}
+
+/* Bar Chart */
+.barChart {
+    margin: 150px auto;
+}
+
